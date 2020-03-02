@@ -1,5 +1,9 @@
 package beans;
 
+import beans.entity.Job;
+import beans.entity.Position;
+import beans.entity.ProgrammingLanguage;
+
 public class EmployeeFactory {
     public static Employee getType(Job job, String name, ProgrammingLanguage programmingLanguage, Position position){
         Employee employee = null;

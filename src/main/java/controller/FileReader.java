@@ -1,6 +1,9 @@
 package controller;
 
 import beans.*;
+import beans.entity.Job;
+import beans.entity.Position;
+import beans.entity.ProgrammingLanguage;
 
 import java.io.IOException;
 import java.nio.charset.StandardCharsets;

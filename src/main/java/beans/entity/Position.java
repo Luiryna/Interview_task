@@ -1,4 +1,4 @@
-package beans;
+package beans.entity;
 
 public enum Position {
     JUNIOR,
@@ -10,15 +10,15 @@ public enum Position {
     public int getSalary(Position position) {
         switch (position) {
             case JUNIOR: {
-                salary = 1000;
+                salary = 500;
                 break;
             }
             case MIDDLE: {
-                salary = 2000;
+                salary = 1000;
                 break;
             }
             case SENIOR: {
-                salary = 3000;
+                salary = 2000;
                 break;
             }
         }

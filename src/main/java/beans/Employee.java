@@ -1,5 +1,9 @@
 package beans;
 
+import beans.entity.Job;
+import beans.entity.Position;
+import beans.entity.ProgrammingLanguage;
+
 public class Employee {
     private String name;
     private ProgrammingLanguage programmingLanguage;
@@ -52,5 +56,13 @@ public class Employee {
 
     public ProgrammingLanguage getProgrammingLanguage() {
         return programmingLanguage;
+    }
+
+    @Override
+    public String toString() {
+        return "Employee [name=" + name
+                + ", job=" + job
+                + ", position=" + position
+                + ", salary=" + salary + "]";
     }
 }
