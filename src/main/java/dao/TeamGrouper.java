@@ -4,6 +4,7 @@ import beans.Employee;
 import dao.Grouper;
 
 import java.util.List;
+import java.util.TreeSet;
 
 public class TeamGrouper implements Grouper<Employee> {
     private List<Employee> employees;
@@ -29,6 +30,16 @@ public class TeamGrouper implements Grouper<Employee> {
         for (Employee employee: employees) {
             System.out.println(employee.toString());
         }
+    }
+
+    public void printEmployees(TreeSet<Employee> employees) {
+        for (Employee employee: employees) {
+            System.out.println(employee.toString());
+        }
+    }
+
+    public void printInformation(String string) {
+        System.out.println(string);
     }
 
     public int getManHours(int days) {
