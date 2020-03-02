@@ -21,6 +21,16 @@ public class TeamGrouper implements Grouper<Employee> {
         employees.remove(employee);
     }
 
+    public List<Employee> getEmployees() {
+        return employees;
+    }
+
+    public void printEmployees() {
+        for (Employee employee: employees) {
+            System.out.println(employee.toString());
+        }
+    }
+
     public int getManHours(int days) {
         return employees.size() * WORKING_HOURS_IN_A_DAY * days;
     }

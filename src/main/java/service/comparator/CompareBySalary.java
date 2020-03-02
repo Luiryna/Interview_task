@@ -1,4 +1,4 @@
-package service;
+package service.comparator;
 
 import beans.Employee;
 

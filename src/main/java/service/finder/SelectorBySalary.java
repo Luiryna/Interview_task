@@ -1,22 +1,21 @@
-package service;
+package service.finder;
 
 import beans.Employee;
-
 import java.util.ArrayList;
 import java.util.List;
 
-public class FinderBySalary implements Finder<Employee>{
+public class SelectorBySalary implements Selector<Employee> {
     private List<Employee> employees;
 
-    public FinderBySalary (List<Employee> employees) {
+    public SelectorBySalary(List<Employee> employees) {
         this.employees = employees;
     }
 
     @Override
-    public List<Employee> getEmployees(List<Employee> list, int lowerBoud, int upperBound) {
+    public List<Employee> getEmployees(List<Employee> list, int lowerBound, int upperBound) {
         List<Employee> result = new ArrayList<>();
         for (Employee employee: list) {
-            if (employee.getSalary() >= lowerBoud && employee.getSalary() <= upperBound){
+            if (employee.getSalary() >= lowerBound && employee.getSalary() <= upperBound){
                 result.add(employee);
             }
         }
