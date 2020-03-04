@@ -1,30 +1,13 @@
 package view;
 
-import beans.Employee;
-import controller.FileReader;
-import controller.Reader;
-import dao.TeamGrouper;
-import service.comparator.CompareBySalary;
-import service.finder.Selector;
-import service.finder.SelectorBySalary;
-
-import java.util.Comparator;
-import java.util.List;
-import java.util.TreeSet;
+import controller.Controller;
 
 public class Injector {
-    private Reader reader;
-    private List actual;
-    private TeamGrouper teamGrouper;
-    private static final int WORKING_DAYS = 8;
-    private static final int LOWER_BOUND = 100;
-    private static final int UPPER_BOUND = 1000;
+    private Controller controller;
 
     public Injector() {
         Menu mainMenu = new Menu();
-        this.reader = new FileReader();
-        this.actual = reader.load(reader.read("src\\main\\resources\\file.txt"));
-        this.teamGrouper = new TeamGrouper(actual);
+        this.controller = new Controller();
 
         addFirstMenu(mainMenu);
         addSecondMenu(mainMenu);
@@ -39,7 +22,7 @@ public class Injector {
         menu.add(new MenuEntry("1", "Show all employees") {
             @Override
             public void doAction() {
-                teamGrouper.printEmployees();
+                controller.executeTask("show_all");
             }
         });
     }
@@ -48,7 +31,7 @@ public class Injector {
         menu.add(new MenuEntry("2", "Show Man-Hours number") {
             @Override
             public void doAction() {
-                teamGrouper.printInformation(String.valueOf(teamGrouper.getManHours(WORKING_DAYS)));
+                controller.executeTask("man_hours");
             }
         });
     }
@@ -57,8 +40,7 @@ public class Injector {
         menu.add(new MenuEntry("3", "Select by salary") {
             @Override
             public void doAction() {
-                Selector finder = new SelectorBySalary(actual);
-                finder.printResult(finder.getEmployees(actual, LOWER_BOUND, UPPER_BOUND));
+                controller.executeTask("select");
             }
         });
     }
@@ -67,11 +49,7 @@ public class Injector {
         menu.add(new MenuEntry("4", "Compare by salary") {
             @Override
             public void doAction() {
-                Comparator<Employee> compareBySalary = new CompareBySalary();
-                TreeSet<Employee> people = new TreeSet(compareBySalary);
-                people.addAll(actual);
-
-                teamGrouper.printEmployees(people);
+                controller.executeTask("compare");
             }
         });
     }

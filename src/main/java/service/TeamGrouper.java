@@ -1,7 +1,6 @@
-package dao;
+package service;
 
 import beans.Employee;
-import dao.Grouper;
 
 import java.util.List;
 import java.util.TreeSet;

@@ -1,4 +1,4 @@
-package controller;
+package dao;
 
 import beans.*;
 import beans.entity.Job;
