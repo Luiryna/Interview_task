@@ -1,11 +1,13 @@
 package beans.entity;
 
+import exception.InvalidDataException;
+
 public enum ProgrammingLanguage {
     JAVA,
     KOTLIN,
     JAVASCRIPT;
 
-    public static ProgrammingLanguage setProgLanguage(String string) {
+    public static ProgrammingLanguage setProgLanguage(String string) throws InvalidDataException{
         ProgrammingLanguage programmingLanguage = null;
         switch (string) {
             case "JAVA": {
@@ -21,7 +23,7 @@ public enum ProgrammingLanguage {
                 break;
             }
             default: {
-                throw new NoSuchFieldError("invalid information");
+                throw new InvalidDataException("invalid information");
             }
         }
         return programmingLanguage;

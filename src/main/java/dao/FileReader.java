@@ -4,6 +4,7 @@ import beans.*;
 import beans.entity.Job;
 import beans.entity.Position;
 import beans.entity.ProgrammingLanguage;
+import exception.InvalidDataException;
 
 import java.io.IOException;
 import java.nio.charset.StandardCharsets;
@@ -13,45 +14,36 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class FileReader implements Reader<Employee> {
-    public List<String> read(String string) {
+    public List<String> read(String string) throws IOException {
         List<String> lines;
-        try {
             lines = Files.readAllLines(Paths.get(string), StandardCharsets.UTF_8);
-        }
-        catch (IOException e) {
-            throw new IllegalArgumentException("File doesn't exist");
-        }
         return lines;
     }
 
-    public List<Employee> load(List<String> strings) {
+    public List<Employee> load(List<String> strings) throws InvalidDataException {
 
         List<Employee> employees = new ArrayList<>();
         for (int i = 0; i < strings.size(); i++) {
             Employee employee = null;
-            try {
                 employee = createEmployeeFromString(strings.get(i));
-            } catch (NoSuchFieldException e) {
-                e.printStackTrace();
-            }
             employees.add(employee);
         }
         return employees;
     }
 
-    public static Employee createEmployeeFromString(String string) throws NoSuchFieldException {
+    public static Employee createEmployeeFromString(String string) throws InvalidDataException {
         Employee result = null;
         String[] parsed = parseEmployee(string);
         result = validateFromString(parsed);
         return result;
     }
 
-    public static String[] parseEmployee(String string) {
+    public static String[] parseEmployee(String string){
         String[] res = string.split(", ");
         return res;
     }
 
-    public static Employee validateFromString(String[] strings) throws NoSuchFieldException {
+    public static Employee validateFromString(String[] strings) throws InvalidDataException {
         Employee result;
         Job job = Job.setJob(strings[0]);
         String name = strings[3];

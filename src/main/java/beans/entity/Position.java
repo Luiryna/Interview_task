@@ -1,5 +1,7 @@
 package beans.entity;
 
+import exception.InvalidDataException;
+
 public enum Position {
     JUNIOR,
     MIDDLE,
@@ -25,7 +27,7 @@ public enum Position {
         return salary;
     }
 
-    public static Position setPosition(String string) {
+    public static Position setPosition(String string) throws InvalidDataException{
         Position position = null;
         switch (string) {
             case "JUNIOR": {
@@ -41,7 +43,7 @@ public enum Position {
                 break;
             }
             default: {
-                throw new NoSuchFieldError("invalid information");
+                throw new InvalidDataException("invalid information");
             }
         }
         return position;
