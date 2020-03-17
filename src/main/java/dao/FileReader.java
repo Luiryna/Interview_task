@@ -26,10 +26,8 @@ public class FileReader implements Reader<Employee> {
             logger.log(Level.INFO, "file read");
         }
         catch (IOException e){
+            logger.log(Level.INFO, "file read failed");
             throw new InvalidDataException("File doesn't exist");
-        }
-        if (lines == null){
-            logger.log(Level.INFO, "NULL IN FILE");
         }
         return lines;
     }

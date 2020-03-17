@@ -47,12 +47,14 @@ public class Controller {
                 break;
             case "MAN_HOURS":
                 teamGrouper.printInformation(String.valueOf(teamGrouper.getManHours(WORKING_DAYS)));
+                logger.log(Level.INFO, "Man-hours counted");
                 break;
             case  "SELECT":
                 try {
                     bordersValidator(LOWER_BOUND, UPPER_BOUND);
                     Selector finder = new SelectorBySalary(actual);
                     finder.printResult(finder.getEmployees(actual, LOWER_BOUND, UPPER_BOUND));
+                    logger.log(Level.INFO, "Employees found");
                 } catch (InvalidDataException e) {
                     e.getMessage();
                 }
@@ -65,6 +67,7 @@ public class Controller {
                     people.addAll(actual);
 
                     teamGrouper.printEmployees(people);
+                    logger.log(Level.INFO, "Employees compared");
                 } catch (InvalidDataException e) {
                     e.getMessage();
                 }

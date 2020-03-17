@@ -6,3 +6,27 @@
 2020-03-17 16:32:10 INFO  FileReader:44 - employeeEmployee [name=name2, job=TEAMLEAD, position=SENIOR, salary=2000]
 2020-03-17 16:32:10 INFO  FileReader:44 - employeeEmployee [name=name3, job=TESTER, position=MIDDLE, salary=1000]
 2020-03-17 16:34:54 INFO  Controller:29 - Exception is here now
+2020-03-17 16:35:11 INFO  FileReader:26 - file read
+2020-03-17 16:35:11 INFO  FileReader:44 - employeeEmployee [name=name1, job=DEVELOPER, position=JUNIOR, salary=500]
+2020-03-17 16:35:11 INFO  FileReader:44 - employeeEmployee [name=name2, job=TEAMLEAD, position=SENIOR, salary=2000]
+2020-03-17 16:35:11 INFO  FileReader:44 - employeeEmployee [name=name3, job=TESTER, position=MIDDLE, salary=1000]
+2020-03-17 16:59:18 INFO  FileReader:26 - file read
+2020-03-17 16:59:18 INFO  FileReader:44 - employeeEmployee [name=name1, job=DEVELOPER, position=JUNIOR, salary=500]
+2020-03-17 16:59:18 INFO  FileReader:44 - employeeEmployee [name=name2, job=TEAMLEAD, position=SENIOR, salary=2000]
+2020-03-17 16:59:18 INFO  FileReader:44 - employeeEmployee [name=name3, job=TESTER, position=MIDDLE, salary=1000]
+2020-03-17 16:59:43 INFO  FileReader:26 - file read
+2020-03-17 16:59:43 INFO  FileReader:44 - employeeEmployee [name=name1, job=DEVELOPER, position=JUNIOR, salary=500]
+2020-03-17 16:59:43 INFO  FileReader:44 - employeeEmployee [name=name2, job=TEAMLEAD, position=SENIOR, salary=2000]
+2020-03-17 16:59:43 INFO  FileReader:44 - employeeEmployee [name=name3, job=TESTER, position=MIDDLE, salary=1000]
+2020-03-17 16:59:50 INFO  FileReader:26 - file read
+2020-03-17 16:59:50 INFO  FileReader:44 - employeeEmployee [name=name1, job=DEVELOPER, position=JUNIOR, salary=500]
+2020-03-17 16:59:50 INFO  FileReader:44 - employeeEmployee [name=name2, job=TEAMLEAD, position=SENIOR, salary=2000]
+2020-03-17 16:59:50 INFO  FileReader:44 - employeeEmployee [name=name3, job=TESTER, position=MIDDLE, salary=1000]
+2020-03-17 17:00:19 INFO  FileReader:26 - file read
+2020-03-17 17:00:19 INFO  FileReader:44 - employeeEmployee [name=name1, job=DEVELOPER, position=JUNIOR, salary=500]
+2020-03-17 17:00:19 INFO  FileReader:44 - employeeEmployee [name=name2, job=TEAMLEAD, position=SENIOR, salary=2000]
+2020-03-17 17:00:19 INFO  FileReader:44 - employeeEmployee [name=name3, job=TESTER, position=MIDDLE, salary=1000]
+2020-03-17 17:02:09 INFO  FileReader:26 - file read
+2020-03-17 17:02:09 INFO  FileReader:44 - employeeEmployee [name=name1, job=DEVELOPER, position=JUNIOR, salary=500]
+2020-03-17 17:02:09 INFO  FileReader:44 - employeeEmployee [name=name2, job=TEAMLEAD, position=SENIOR, salary=2000]
+2020-03-17 17:02:09 INFO  FileReader:44 - employeeEmployee [name=name3, job=TESTER, position=MIDDLE, salary=1000]
