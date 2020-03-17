@@ -4,6 +4,9 @@ import beans.Employee;
 import dao.FileReader;
 import dao.Reader;
 import exception.InvalidDataException;
+import org.apache.log4j.Level;
+import org.apache.log4j.LogManager;
+import org.apache.log4j.Logger;
 import service.TeamGrouper;
 import service.comparator.CompareBySalary;
 import service.finder.Selector;
@@ -15,6 +18,7 @@ import java.util.List;
 import java.util.TreeSet;
 
 public class Controller {
+    private final Logger logger = LogManager.getLogger(Controller.class);
     private Reader reader = new FileReader();
     private List actual;
 
@@ -22,13 +26,14 @@ public class Controller {
         try {
             actual = reader.load(reader.read("src\\main\\resources\\file.txt"));
         } catch (InvalidDataException | IOException e) {
+            logger.log(Level.INFO, "Exception is here now");
             e.getMessage();
         }
     }
 
     private TeamGrouper teamGrouper = new TeamGrouper(actual);
     private static final int WORKING_DAYS = 8;
-    private static final int LOWER_BOUND = -1;
+    private static final int LOWER_BOUND = 100;
     private static final int UPPER_BOUND = 1000;
 
     public String executeTask(String request){
@@ -63,8 +68,6 @@ public class Controller {
                 } catch (InvalidDataException e) {
                     e.getMessage();
                 }
-
-
                 break;
             default:
                 response = "We can't execute this command";

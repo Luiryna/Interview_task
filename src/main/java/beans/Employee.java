@@ -65,4 +65,29 @@ public class Employee {
                 + ", position=" + position
                 + ", salary=" + salary + "]";
     }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        Employee employee = (Employee) o;
+
+        if (salary != employee.salary) return false;
+        if (!name.equals(employee.name)) return false;
+        if (programmingLanguage != employee.programmingLanguage) return false;
+        if (position != employee.position) return false;
+        return job == employee.job;
+
+    }
+
+    @Override
+    public int hashCode() {
+        int result = name.hashCode();
+        result = 31 * result + programmingLanguage.hashCode();
+        result = 31 * result + position.hashCode();
+        result = 31 * result + job.hashCode();
+        result = 31 * result + salary;
+        return result;
+    }
 }

@@ -5,33 +5,49 @@ import beans.entity.Job;
 import beans.entity.Position;
 import beans.entity.ProgrammingLanguage;
 import exception.InvalidDataException;
+import org.apache.log4j.Level;
+import org.apache.log4j.LogManager;
+import org.apache.log4j.Logger;
 
 import java.io.IOException;
-import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.List;
 
 public class FileReader implements Reader<Employee> {
-    public List<String> read(String string) throws IOException {
-        List<String> lines;
-            lines = Files.readAllLines(Paths.get(string), StandardCharsets.UTF_8);
+
+    private final Logger logger = LogManager.getLogger(FileReader.class);
+
+    public List<String> read(String string) throws InvalidDataException {
+        List<String> lines = new ArrayList<>();
+        try{
+            lines = Files.readAllLines(Paths.get(string));
+            logger.log(Level.INFO, "file read");
+        }
+        catch (IOException e){
+            throw new InvalidDataException("File doesn't exist");
+        }
+        if (lines == null){
+            logger.log(Level.INFO, "NULL IN FILE");
+        }
         return lines;
     }
 
-    public List<Employee> load(List<String> strings) throws InvalidDataException {
-
+    public List<Employee> load(List<String> strings) {
+        if (strings == null) {
+            logger.log(Level.INFO, "file = null");
+        }
         List<Employee> employees = new ArrayList<>();
         for (int i = 0; i < strings.size(); i++) {
-            Employee employee = null;
-                employee = createEmployeeFromString(strings.get(i));
+            Employee employee = createEmployeeFromString(strings.get(i));
+            logger.log(Level.INFO, "employee" + employee);
             employees.add(employee);
         }
         return employees;
     }
 
-    public static Employee createEmployeeFromString(String string) throws InvalidDataException {
+    public static Employee createEmployeeFromString(String string) {
         Employee result = null;
         String[] parsed = parseEmployee(string);
         result = validateFromString(parsed);
@@ -43,7 +59,7 @@ public class FileReader implements Reader<Employee> {
         return res;
     }
 
-    public static Employee validateFromString(String[] strings) throws InvalidDataException {
+    public static Employee validateFromString(String[] strings) {
         Employee result;
         Job job = Job.setJob(strings[0]);
         String name = strings[3];
